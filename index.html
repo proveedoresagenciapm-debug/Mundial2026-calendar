@@ -3,74 +3,253 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mundial FIFA 2026 | Pasaporte Mágico</title>
+<title>Mundial FIFA 2026 - Calendario Oficial</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #f0f0f0; line-height: 1.6; }
 
-  .hero { background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 50%, #0a0a0a 100%); padding: 50px 20px 40px; text-align: center; }
-  .badge { display: inline-block; background: #C8102E; color: white; font-size: 11px; font-weight: 700; letter-spacing: 2px; padding: 6px 16px; border-radius: 20px; margin-bottom: 20px; text-transform: uppercase; }
-  h1 { font-size: clamp(32px, 7vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -1.5px; margin-bottom: 16px; }
-  h1 span { color: #FFD700; }
-  .sub { font-size: clamp(15px, 2.5vw, 18px); color: #bbb; max-width: 540px; margin: 0 auto 36px; }
-  .pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 40px; }
-  .pill { background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.25); color: #FFD700; font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 20px; }
+  :root {
+    --purple: #5B2C6F;
+    --purple-light: #7D3C98;
+    --gold: #FFD23F;
+    --navy: #0F2B5C;
+    --navy-light: #1A3F7A;
+    --dark: #0a0a0a;
+    --bg: #0F1729;
+    --card: #1A2440;
+    --border: #2D3654;
+    --text: #f0f0f0;
+    --muted: #9aa3b8;
+  }
 
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background:
+      radial-gradient(ellipse at 30% 20%, rgba(91,44,111,0.4) 0%, transparent 50%),
+      radial-gradient(ellipse at 70% 80%, rgba(15,43,92,0.6) 0%, transparent 50%),
+      linear-gradient(180deg, #0F1729 0%, #1A2440 100%);
+    padding: 60px 20px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(255,210,63,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 7px 18px;
+    border-radius: 20px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(255,210,63,0.3);
+  }
+  h1 {
+    font-size: clamp(36px, 8vw, 72px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  h1 span {
+    background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .sub {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: #cbd5e1;
+    max-width: 540px;
+    margin: 0 auto 36px;
+  }
+
+  .pills {
+    display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 8px; margin-bottom: 44px;
+  }
+  .pill {
+    background: rgba(255,210,63,0.08);
+    border: 1px solid rgba(255,210,63,0.3);
+    color: var(--gold);
+    font-size: 12px; font-weight: 600;
+    padding: 7px 14px; border-radius: 20px;
+  }
+
+  /* CALENDAR BUTTONS */
   .cal-box { max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
-  .cal-link { display: block; padding: 18px 20px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; text-align: center; transition: transform 0.15s; cursor: pointer; }
-  .cal-link:hover { transform: translateY(-2px); }
-  .cal-google { background: #4285F4; color: white; }
-  .cal-apple { background: #fff; color: #000; }
-  .cal-download { background: transparent; color: #FFD700; border: 2px solid #FFD700; }
+  .cal-link {
+    display: flex; align-items: center; justify-content: center;
+    gap: 10px; padding: 18px 22px; border-radius: 14px;
+    font-size: 16px; font-weight: 700; text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .cal-link:hover { transform: translateY(-3px); }
+  .cal-google {
+    background: linear-gradient(135deg, #4285F4 0%, #1A73E8 100%);
+    color: white;
+    box-shadow: 0 6px 20px rgba(66,133,244,0.35);
+  }
+  .cal-google:hover { box-shadow: 0 10px 28px rgba(66,133,244,0.5); }
+  .cal-apple {
+    background: white;
+    color: var(--navy);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+  }
+  .cal-apple:hover { box-shadow: 0 10px 28px rgba(255,255,255,0.25); }
+  .cal-download {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+  }
+  .cal-download:hover { background: rgba(255,210,63,0.08); }
 
-  .help-box { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 16px; max-width: 520px; margin: 20px auto 0; }
-  .help-box p { font-size: 13px; color: #aaa; margin-bottom: 10px; }
+  .help-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    max-width: 520px;
+    margin: 22px auto 0;
+  }
+  .help-box p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
   .url-row { display: flex; gap: 8px; }
-  .url-input { flex: 1; background: #0a0a0a; border: 1px solid #444; border-radius: 8px; padding: 10px; color: #FFD700; font-size: 11px; font-family: monospace; outline: none; }
-  .btn-copy { background: #FFD700; color: #000; border: none; border-radius: 8px; padding: 10px 14px; font-weight: 700; cursor: pointer; font-size: 13px; white-space: nowrap; }
+  .url-input {
+    flex: 1; background: #0a1428; border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px;
+    color: var(--gold); font-size: 11px; font-family: monospace;
+    outline: none;
+  }
+  .btn-copy {
+    background: var(--gold); color: var(--navy); border: none;
+    border-radius: 8px; padding: 10px 16px;
+    font-weight: 700; cursor: pointer;
+    font-size: 13px; white-space: nowrap;
+  }
 
-  .stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; padding: 32px 20px; background: #141414; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; }
-  .stat-num { font-size: 36px; font-weight: 900; color: #FFD700; }
-  .stat-label { font-size: 12px; color: #888; }
+  /* STATS */
+  .stats {
+    display: flex; justify-content: center; gap: 36px; flex-wrap: wrap;
+    padding: 36px 20px;
+    background: linear-gradient(180deg, var(--purple) 0%, var(--purple-light) 100%);
+  }
   .stat { text-align: center; }
+  .stat-num {
+    font-size: 40px; font-weight: 900; color: var(--gold);
+    line-height: 1; text-shadow: 0 2px 12px rgba(255,210,63,0.3);
+  }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.85); margin-top: 6px; font-weight: 600; }
 
-  .section { padding: 50px 20px; max-width: 900px; margin: 0 auto; }
-  .section h2 { font-size: clamp(24px, 4vw, 36px); font-weight: 800; margin-bottom: 24px; text-align: center; }
-  .section h2 span { color: #FFD700; }
+  /* SECTION */
+  .section { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+  .section h2 {
+    font-size: clamp(26px, 4vw, 38px); font-weight: 800;
+    margin-bottom: 30px; text-align: center;
+  }
+  .section h2 span {
+    background: linear-gradient(135deg, var(--gold) 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-  .steps { display: grid; gap: 12px; max-width: 700px; margin: 0 auto; }
-  .step { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 18px 22px; display: flex; align-items: flex-start; gap: 14px; }
-  .step-num { min-width: 32px; height: 32px; background: #C8102E; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; }
-  .step h3 { font-size: 15px; margin-bottom: 4px; }
-  .step p { font-size: 13px; color: #aaa; }
-  .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
-  .tab { padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; border: 1px solid #2a2a2a; background: transparent; color: #888; }
-  .tab.active { background: #C8102E; border-color: #C8102E; color: white; }
+  /* STEPS */
+  .steps { display: grid; gap: 14px; max-width: 700px; margin: 0 auto; }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    transition: border-color 0.2s;
+  }
+  .step:hover { border-color: var(--gold); }
+  .step-num {
+    min-width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px; color: white;
+    box-shadow: 0 4px 12px rgba(91,44,111,0.4);
+  }
+  .step h3 { font-size: 16px; margin-bottom: 4px; color: white; }
+  .step p { font-size: 14px; color: var(--muted); }
+  .tabs { display: flex; gap: 8px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+  .tab {
+    padding: 10px 20px; border-radius: 10px;
+    font-size: 13px; font-weight: 600; cursor: pointer;
+    border: 1px solid var(--border); background: transparent;
+    color: var(--muted);
+    transition: all 0.2s;
+    font-family: inherit;
+  }
+  .tab:hover { color: white; border-color: var(--gold); }
+  .tab.active {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+    border-color: transparent;
+    color: white;
+  }
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  .groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
-  .gc { background: #141414; border: 1px solid #2a2a2a; border-radius: 10px; padding: 12px 14px; }
-  .gc h4 { font-size: 10px; font-weight: 700; letter-spacing: 2px; color: #FFD700; margin-bottom: 8px; }
+  /* GROUPS */
+  .groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+  .gc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 16px;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .gc:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold);
+  }
+  .gc h4 {
+    font-size: 11px; font-weight: 700; letter-spacing: 2px;
+    color: var(--gold); margin-bottom: 10px;
+  }
   .gc ul { list-style: none; }
-  .gc li { font-size: 12px; padding: 2px 0; color: #ccc; }
+  .gc li { font-size: 13px; padding: 3px 0; color: #cbd5e1; }
 
-  .promo { background: linear-gradient(135deg, #C8102E, #8b0000); padding: 40px 24px; text-align: center; margin: 30px auto; border-radius: 16px; max-width: 860px; }
-  .promo h2 { font-size: clamp(20px, 4vw, 30px); font-weight: 900; margin-bottom: 10px; }
-  .promo p { font-size: 14px; opacity: 0.9; margin-bottom: 20px; }
-  .btn-white { display: inline-block; background: white; color: #C8102E; padding: 12px 28px; border-radius: 10px; font-weight: 800; text-decoration: none; }
-
-  footer { text-align: center; padding: 24px 20px; color: #888; font-size: 12px; border-top: 1px solid #2a2a2a; }
-  footer a { color: #FFD700; text-decoration: none; }
+  footer {
+    text-align: center; padding: 30px 20px;
+    color: var(--muted); font-size: 12px;
+    border-top: 1px solid var(--border);
+    background: #0a1428;
+  }
+  footer p { margin: 4px 0; }
 </style>
 </head>
 <body>
 
 <section class="hero">
-  <div class="badge">⚽ FIFA World Cup 2026 · Gratis · 104 Partidos</div>
+  <div class="badge">⚽ FIFA World Cup 2026 · 104 Partidos</div>
   <h1>El Mundial<br>en tu <span>Calendario</span></h1>
-  <p class="sub">Suscríbete una vez. Todos los partidos aparecen automáticamente.</p>
+  <p class="sub">Suscríbete una vez. Todos los partidos aparecen automáticamente en tu calendario favorito.</p>
 
   <div class="pills">
     <span class="pill">✓ 104 partidos</span>
@@ -112,15 +291,15 @@
 
   <div id="google" class="tab-content active">
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div><h3>Haz clic en "Agregar a Google Calendar"</h3><p>O copia la URL y ve a calendar.google.com → ⚙️ Configuración → Agregar calendario → Desde URL.</p></div></div>
-      <div class="step"><div class="step-num">2</div><div><h3>Pega la URL y confirma</h3><p>Google Calendar procesará el archivo y te mostrará una confirmación.</p></div></div>
+      <div class="step"><div class="step-num">1</div><div><h3>Haz clic en "Agregar a Google Calendar"</h3><p>Se abrirá Google Calendar con una vista previa del calendario.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><h3>Confirma la suscripción</h3><p>Google te preguntará si quieres agregar el calendario. Acepta.</p></div></div>
       <div class="step"><div class="step-num">3</div><div><h3>¡Listo!</h3><p>Los 104 partidos aparecen en tu calendario con hora local automática.</p></div></div>
     </div>
   </div>
 
   <div id="apple" class="tab-content">
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div><h3>Desde iPhone, iPad o Mac</h3><p>Abre la página en Safari (no en Chrome) y presiona el botón blanco.</p></div></div>
+      <div class="step"><div class="step-num">1</div><div><h3>Desde iPhone, iPad o Mac</h3><p>Abre la página en Safari y presiona el botón blanco.</p></div></div>
       <div class="step"><div class="step-num">2</div><div><h3>Acepta la suscripción</h3><p>Tu dispositivo mostrará los detalles. Toca "Suscribirse".</p></div></div>
       <div class="step"><div class="step-num">3</div><div><h3>Sincronización automática</h3><p>Se sincroniza en todos tus dispositivos Apple vía iCloud.</p></div></div>
     </div>
@@ -153,15 +332,9 @@
   </div>
 </section>
 
-<div class="promo">
-  <h2>✈️ ¡Vive el Mundial en persona!</h2>
-  <p>Vuelos, hoteles y paquetes todo incluido para el FIFA World Cup 2026.</p>
-  <a href="https://www.pasaportemagico.com" class="btn-white">Ver paquetes → pasaportemagico.com</a>
-</div>
-
 <footer>
-  <p>Calendario creado por <a href="https://www.pasaportemagico.com">Pasaporte Mágico</a></p>
-  <p style="margin-top:6px;font-size:11px;">Horarios según programación oficial FIFA. Sujetos a cambios.</p>
+  <p>Calendario oficial del Mundial FIFA 2026</p>
+  <p style="font-size:11px;">Horarios según programación oficial FIFA. Sujetos a cambios.</p>
 </footer>
 
 <script>
@@ -173,7 +346,6 @@
     document.getElementById(id).classList.add('active');
     btn.classList.add('active');
   }
-
   function copyUrl(btn) {
     var input = document.getElementById('cal-url');
     input.select();
