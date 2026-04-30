@@ -243,6 +243,15 @@
   }
   footer p { margin: 4px 0; }
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4B94QS8R5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-C4B94QS8R5');
+</script>
+<!-- End Google Analytics -->
 </head>
 <body>
 
@@ -259,9 +268,9 @@
   </div>
 
   <div class="cal-box">
-    <a class="cal-link cal-google" href="https://calendar.google.com/calendar/u/0?cid=ZDljZDU1YWFiMTg0NzdiNjE5N2U5NTBlZWIwMjM5ZWYxZTZkYzE4YWEyOGI3NmJjMzc2OGUzYmIwMDUxNjkwMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">📅 Agregar a Google Calendar</a>
-    <a class="cal-link cal-apple" href="webcal://p72-caldav.icloud.com/published/2/MjA0NTg2OTgxMDMyMDQ1OCwrbz24zPQAZ42jqKKmDTwCa8NjpzPsBSoIj-K7gyvm595LseOCoQw1itqWeD88sfv_I2ZZKU-NgktYVNK3ijM">🍎 Agregar a Apple Calendar (iPhone / Mac)</a>
-    <a class="cal-link cal-download" href="https://p72-caldav.icloud.com/published/2/MjA0NTg2OTgxMDMyMDQ1OCwrbz24zPQAZ42jqKKmDTwCa8NjpzPsBSoIj-K7gyvm595LseOCoQw1itqWeD88sfv_I2ZZKU-NgktYVNK3ijM" download="mundial2026.ics">⬇ Descargar .ics (Windows / Outlook)</a>
+    <a class="cal-link cal-google" onclick="gtag('event', 'click_google_calendar', {'event_category': 'subscription', 'event_label': 'Google Calendar'});" href="https://calendar.google.com/calendar/u/0?cid=ZDljZDU1YWFiMTg0NzdiNjE5N2U5NTBlZWIwMjM5ZWYxZTZkYzE4YWEyOGI3NmJjMzc2OGUzYmIwMDUxNjkwMkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t">📅 Agregar a Google Calendar</a>
+    <a class="cal-link cal-apple" onclick="gtag('event', 'click_apple_calendar', {'event_category': 'subscription', 'event_label': 'Apple Calendar'});" href="webcal://p72-caldav.icloud.com/published/2/MjA0NTg2OTgxMDMyMDQ1OCwrbz24zPQAZ42jqKKmDTwCa8NjpzPsBSoIj-K7gyvm595LseOCoQw1itqWeD88sfv_I2ZZKU-NgktYVNK3ijM">🍎 Agregar a Apple Calendar (iPhone / Mac)</a>
+    <a class="cal-link cal-download" onclick="gtag('event', 'click_download_ics', {'event_category': 'subscription', 'event_label': 'Download ICS'});" href="https://p72-caldav.icloud.com/published/2/MjA0NTg2OTgxMDMyMDQ1OCwrbz24zPQAZ42jqKKmDTwCa8NjpzPsBSoIj-K7gyvm595LseOCoQw1itqWeD88sfv_I2ZZKU-NgktYVNK3ijM" download="mundial2026.ics">⬇ Descargar .ics (Windows / Outlook)</a>
   </div>
 
   <div class="help-box">
